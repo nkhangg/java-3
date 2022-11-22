@@ -66,15 +66,24 @@ public class Validate {
             return false;
         }
 
+        if (user != null) {
+            String pass = new String(password.getPassword());
+            if (!pass.equals(user.getPassword())) {
+                str.append("Your username or password is incorrect !");
+                Message.showWarning(str.toString(), input);
+                return false;
+            }
+        }
+
         return true;
     }
-    
-    public static boolean  validatePetId(JTextField input, Component cpn){
-        if(Validate.isEmpty(input)){
+
+    public static boolean validatePetId(JTextField input, Component cpn) {
+        if (Validate.isEmpty(input)) {
             Message.showWarning("You must not leave the ID blank !", cpn);
             return false;
-        }else{
-            if(!Validate.isInt(input)){
+        } else {
+            if (!Validate.isInt(input)) {
                 Message.showWarning("ID must be numeric !", cpn);
                 return false;
             }

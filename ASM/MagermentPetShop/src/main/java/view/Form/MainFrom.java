@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -27,6 +28,7 @@ import model.ManagermentPetModel;
 import model.Pet;
 import model.Saff;
 import model.User;
+import ultil.ContantString;
 import ultil.Convert;
 import ultil.Data;
 import ultil.Fomart;
@@ -88,6 +90,8 @@ public class MainFrom extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        btnNavLowest = new javax.swing.JButton();
+        btnNavHigest = new javax.swing.JButton();
         pMain = new javax.swing.JPanel();
         pMainHome = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -150,6 +154,8 @@ public class MainFrom extends javax.swing.JFrame {
         txtAddressPerson = new javax.swing.JTextField();
         jSeparator15 = new javax.swing.JSeparator();
         lblAddressPerson = new javax.swing.JLabel();
+        jPanel32 = new javax.swing.JPanel();
+        lblNotifyPersonal = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         lblWelcomePersonal = new javax.swing.JLabel();
         lblWelcomeRolePersonal = new javax.swing.JLabel();
@@ -204,6 +210,9 @@ public class MainFrom extends javax.swing.JFrame {
         lblImagePet = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         btnFindPet = new javax.swing.JButton();
+        jPanel31 = new javax.swing.JPanel();
+        lblNotifyPet = new javax.swing.JLabel();
+        jSeparator22 = new javax.swing.JSeparator();
         jPanel10 = new javax.swing.JPanel();
         lblWelcomePet = new javax.swing.JLabel();
         lblWelcomeRolePet = new javax.swing.JLabel();
@@ -314,20 +323,59 @@ public class MainFrom extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnNavLowest.setBackground(new java.awt.Color(161, 152, 130));
+        btnNavLowest.setFont(new java.awt.Font("STXinwei", 0, 18)); // NOI18N
+        btnNavLowest.setForeground(new java.awt.Color(204, 204, 204));
+        btnNavLowest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icon/icons8_chart_30px_5.png"))); // NOI18N
+        btnNavLowest.setText("Lowest");
+        btnNavLowest.setActionCommand("Lowest");
+        btnNavLowest.setAlignmentX(1.0F);
+        btnNavLowest.setBorderPainted(false);
+        btnNavLowest.setContentAreaFilled(false);
+        btnNavLowest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNavLowest.setFocusable(false);
+        btnNavLowest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNavLowest.setIconTextGap(12);
+        btnNavLowest.setMargin(new java.awt.Insets(2, 14, 10, 0));
+        btnNavLowest.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnNavLowest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNavLowestActionPerformed(evt);
+            }
+        });
+
+        btnNavHigest.setBackground(new java.awt.Color(161, 152, 130));
+        btnNavHigest.setFont(new java.awt.Font("STXinwei", 0, 18)); // NOI18N
+        btnNavHigest.setForeground(new java.awt.Color(204, 204, 204));
+        btnNavHigest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icon/icons8_chart_30px_5.png"))); // NOI18N
+        btnNavHigest.setText("Highest");
+        btnNavHigest.setActionCommand("Highest");
+        btnNavHigest.setAlignmentX(1.0F);
+        btnNavHigest.setBorderPainted(false);
+        btnNavHigest.setContentAreaFilled(false);
+        btnNavHigest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNavHigest.setFocusable(false);
+        btnNavHigest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNavHigest.setIconTextGap(12);
+        btnNavHigest.setMargin(new java.awt.Insets(2, 14, 10, 0));
+        btnNavHigest.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNavPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNavHome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1)
-                    .addComponent(btnNavPet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNavPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNavHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnNavPet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNavLowest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNavHigest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -337,11 +385,15 @@ public class MainFrom extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnNavHome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNavPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNavPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
+                .addComponent(btnNavHigest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNavLowest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -878,6 +930,24 @@ public class MainFrom extends javax.swing.JFrame {
         lblAddressPerson.setFont(new java.awt.Font("Source Sans Pro", 0, 14)); // NOI18N
         lblAddressPerson.setText("Address");
 
+        jPanel32.setBackground(new java.awt.Color(254, 247, 220));
+
+        lblNotifyPersonal.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblNotifyPersonal.setText("jLabel6");
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNotifyPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNotifyPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -945,7 +1015,7 @@ public class MainFrom extends javax.swing.JFrame {
                         .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
                         .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -961,7 +1031,8 @@ public class MainFrom extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtAddressPerson)
                             .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1016,7 +1087,9 @@ public class MainFrom extends javax.swing.JFrame {
                     .addComponent(lblAddressPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1150,11 +1223,11 @@ public class MainFrom extends javax.swing.JFrame {
 
         txtTypePet.setBackground(new java.awt.Color(254, 247, 220));
         txtTypePet.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        txtTypePet.setText("Color");
+        txtTypePet.setText("Type");
         txtTypePet.setBorder(null);
 
         lblTypePet.setFont(new java.awt.Font("Source Sans Pro", 0, 14)); // NOI18N
-        lblTypePet.setText("Color");
+        lblTypePet.setText("Type");
 
         txtPricePet.setBackground(new java.awt.Color(254, 247, 220));
         txtPricePet.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
@@ -1211,7 +1284,7 @@ public class MainFrom extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnLastPet, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(btnLastPet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel12.setBackground(new java.awt.Color(254, 247, 220));
@@ -1434,6 +1507,24 @@ public class MainFrom extends javax.swing.JFrame {
             .addComponent(btnFindPet, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel31.setBackground(new java.awt.Color(254, 247, 220));
+
+        lblNotifyPet.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblNotifyPet.setText("jLabel6");
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNotifyPet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNotifyPet, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1441,7 +1532,26 @@ public class MainFrom extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1496,43 +1606,27 @@ public class MainFrom extends javax.swing.JFrame {
                                     .addComponent(txtPricePet)
                                     .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(lblTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTypePet)
-                                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(186, 186, 186)
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtIdPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblIdPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1545,25 +1639,11 @@ public class MainFrom extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtAgePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblAgePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtPricePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblPricePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtWeightPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblWeightPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtAgePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAgePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1581,28 +1661,43 @@ public class MainFrom extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(47, 47, 47)
                                         .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(69, 69, 69))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtPricePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPricePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtWeightPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblWeightPet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTypePet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -1653,9 +1748,9 @@ public class MainFrom extends javax.swing.JFrame {
                 .addGroup(pMainPetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pMainLayout = new javax.swing.GroupLayout(pMain);
@@ -1728,6 +1823,10 @@ public class MainFrom extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMainPersonalActionPerformed
 
+    private void btnNavLowestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavLowestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNavLowestActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1783,7 +1882,9 @@ public class MainFrom extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMainPersonal;
     private javax.swing.JButton btnMainPet;
+    private javax.swing.JButton btnNavHigest;
     private javax.swing.JButton btnNavHome;
+    private javax.swing.JButton btnNavLowest;
     private javax.swing.JButton btnNavPersonal;
     private javax.swing.JButton btnNavPet;
     private javax.swing.JButton btnNewPerson;
@@ -1831,6 +1932,8 @@ public class MainFrom extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1848,6 +1951,7 @@ public class MainFrom extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1869,6 +1973,8 @@ public class MainFrom extends javax.swing.JFrame {
     private javax.swing.JLabel lblImagePet;
     private javax.swing.JLabel lblNamePerson;
     private javax.swing.JLabel lblNamePet;
+    private javax.swing.JLabel lblNotifyPersonal;
+    private javax.swing.JLabel lblNotifyPet;
     private javax.swing.JLabel lblPricePet;
     private javax.swing.JLabel lblRolePerson;
     private javax.swing.JLabel lblTypePet;
@@ -1908,10 +2014,10 @@ public class MainFrom extends javax.swing.JFrame {
     }
 
     private MainController controller = new MainController(this);
-    private ManagermentPetModel modelPet = new ManagermentPetModel();
-    private ManagermentPersonalModel modelPersonal = new ManagermentPersonalModel();
     private PetController petController = new PetController(this);
     private PersonalController personController = new PersonalController(this);
+    private ManagermentPetModel modelPet = new ManagermentPetModel();
+    private ManagermentPersonalModel modelPersonal = new ManagermentPersonalModel();
 
     public void action() {
         this.addWindowListener(controller);
@@ -1919,6 +2025,8 @@ public class MainFrom extends javax.swing.JFrame {
         this.btnNavHome.addActionListener(controller);
         this.btnNavPet.addActionListener(controller);
         this.btnLogout.addActionListener(controller);
+        this.btnNavHigest.addActionListener(controller);
+        this.btnNavLowest.addActionListener(controller);
 
         //pet
         this.btnNewPet.addActionListener(petController);
@@ -1952,7 +2060,6 @@ public class MainFrom extends javax.swing.JFrame {
 
         this.tblTablePerson.addMouseListener(personController);
         tblTablePerson.addKeyListener(personController);
-
         this.addKeyListener(personController);
 
     }
@@ -1964,9 +2071,15 @@ public class MainFrom extends javax.swing.JFrame {
         initStyleTable(tblTablePerson);
         initTablePet();
         initTablePerson();
-        renderPersonal();
-        renderPet();
+        initNotify(lblNotifyPersonal);
+        initNotify(lblNotifyPet);
+        renderPersonal(modelPersonal.getList());
+        renderPet(modelPet.getList());
 
+    }
+
+    public void initNotify(JLabel lable) {
+        ContantString.notifyListPet(lable);
     }
 
     public void initStyleTable(JTable input) {
@@ -2002,6 +2115,8 @@ public class MainFrom extends javax.swing.JFrame {
         btnNavHome.setForeground(new Color(204, 204, 204));
         btnNavPersonal.setForeground(new Color(204, 204, 204));
         btnNavPet.setForeground(new Color(204, 204, 204));
+        btnNavHigest.setForeground(new Color(204, 204, 204));
+        btnNavLowest.setForeground(new Color(204, 204, 204));
 
     }
 
@@ -2015,13 +2130,34 @@ public class MainFrom extends javax.swing.JFrame {
             this.pMainHome.setVisible(false);
             this.pMainPet.setVisible(false);
             this.pMainPersonel.setVisible(true);
+            stateControlTop(true, "Personal");
             setColorActive(btnNavPersonal);
+            renderPersonal(modelPersonal.getList());
 
         } else if (src.equals("mainPet")) {
             this.pMainHome.setVisible(false);
             this.pMainPersonel.setVisible(false);
             this.pMainPet.setVisible(true);
+            stateControlTop(true, "Pet");
             setColorActive(btnNavPet);
+            renderPet(modelPet.getList());
+
+        } 
+        else if (src.equals("Lowest")) {
+            if (btnNavLowest.getText().contains("Personal")) {
+                showStateList("lowest", "personal");
+            } else {
+                showStateList("lowest", "pet");
+            }
+            setColorActive(btnNavLowest);
+
+        } else if (src.equals("Highest")) {
+            if (btnNavLowest.getText().contains("Personal")) {
+                showStateList("highest", "personal");
+            } else {
+                showStateList("highest", "pet");
+            }
+            setColorActive(btnNavHigest);
 
         }
     }
@@ -2030,7 +2166,16 @@ public class MainFrom extends javax.swing.JFrame {
         this.pMainPet.setVisible(false);
         this.pMainPersonel.setVisible(false);
         this.pMainHome.setVisible(true);
+        stateControlTop(false, "");
         setColorActive(btnNavHome);
+    }
+
+    public void stateControlTop(boolean hidden, String name) {
+        this.btnNavHigest.setVisible(hidden);
+        this.btnNavLowest.setVisible(hidden);
+        this.btnNavHigest.setText("Highest: " + name);
+        this.btnNavLowest.setText("Lowest: " + name);
+
     }
 
     //handle
@@ -2048,17 +2193,17 @@ public class MainFrom extends javax.swing.JFrame {
 
     }
 
-    public void renderPet() {
+    public void renderPet(ArrayList<Pet> list) {
         modelTablePet.setRowCount(0);
-        for (Pet e : this.modelPet.getList()) {
+        for (Pet e : list) {
             Object[] row = new Object[]{e.getIdPet(), e.getNamePet(), e.getAge(), e.getWeight(), e.getType(), e.getGenther(), e.getColor(), e.getPrice()};
             modelTablePet.addRow(row);
         }
     }
 
-    public void renderPersonal() {
+    public void renderPersonal(ArrayList<Saff> list) {
         modelTablePerson.setRowCount(0);
-        for (Saff e : this.modelPersonal.getList()) {
+        for (Saff e : list) {
             Object[] row = new Object[]{e.getIdSaff(), e.getNameSaff(), e.getDateOfBirth(), e.getEmail(), e.getAddress(), e.getGenther(), e.getRole()};
             modelTablePerson.addRow(row);
         }
@@ -2198,7 +2343,6 @@ public class MainFrom extends javax.swing.JFrame {
         if (index <= -1) {
             return;
         }
-        System.out.println(index);
         Saff p = modelPersonal.getList().get(index);
         showPerson(p);
 
@@ -2306,53 +2450,52 @@ public class MainFrom extends javax.swing.JFrame {
         boolean p = modelPet.insert(us);
 
         if (p) {
-            renderPet();
+            renderPet(modelPet.getList());
             Message.showSuccess("Insert successfuly !  \n If you want to update please enter ID !", this);
         } else {
             Message.showSuccess("Insert fail !", this);
         }
     }
-
-    // add personal
+//
+//    // add personal
     public void addPerson() {
 
         Saff us = createPerson();
         boolean p = modelPersonal.insert(us);
 
         if (p) {
-            renderPersonal();
+            renderPersonal(modelPersonal.getList());
             Message.showSuccess("Insert successfuly !  \n", this);
         } else {
             Message.showSuccess("Insert fail !", this);
         }
     }
-
-    //update pet
+//    //update pet
     public void updatePet() {
         Pet us = createPet(true);
         boolean p = modelPet.update(us);
         if (p) {
-            renderPet();
+            renderPet(modelPet.getList());
             Message.showSuccess("Update successfuly !", this);
         } else {
             Message.showSuccess("Update fail !", this);
         }
     }
 
-    //update personal
+//    //update personal
     public void updatePerson() {
 
         Saff us = createPerson();
         boolean p = modelPersonal.update(us);
         if (p) {
-            renderPersonal();
+            renderPersonal(modelPersonal.getList());
             Message.showSuccess("Update successfuly !", this);
         } else {
             Message.showSuccess("Update fail !", this);
         }
     }
 
-    //handle Pet
+//    //handle Pet
     public void handleInsertPet() {
 
         if (validatePet()) {
@@ -2387,15 +2530,14 @@ public class MainFrom extends javax.swing.JFrame {
         if (!Validate.validatePetId(txtIdPet, this)) {
             return;
         }
-        
- 
+
         Pet us = modelPet.findById(txtIdPet.getText());
 
         if (us != null) {
             if (Message.showSelected("Are sure ?", this)) {
                 boolean p = modelPet.delete(us);
                 if (p) {
-                    renderPet();
+                    renderPet(modelPet.getList());
                     Message.showSuccess("Delete Successfult !", this);
                 } else {
                     Message.showSuccess("Delete fail !", this);
@@ -2415,7 +2557,7 @@ public class MainFrom extends javax.swing.JFrame {
             if (Message.showSelected("Are sure ?", this)) {
                 boolean p = modelPersonal.delete(us);
                 if (p) {
-                    renderPersonal();
+                    renderPersonal(modelPersonal.getList());
                     Message.showSuccess("Delete Successfult !", this);
                 } else {
                     Message.showSuccess("Delete fail !", this);
@@ -2429,9 +2571,9 @@ public class MainFrom extends javax.swing.JFrame {
             case "First":
                 this.index = 0;
                 showSelectedPet(index, true);
-//                this.index = 1;
                 break;
             case "Last":
+
                 this.index = modelPet.getList().size() - 1;
                 showSelectedPet(index, true);
                 break;
@@ -2447,6 +2589,7 @@ public class MainFrom extends javax.swing.JFrame {
                 break;
 
             case "Prev":
+
                 --index;
                 if (index < 0) {
                     index = 0;
@@ -2467,6 +2610,7 @@ public class MainFrom extends javax.swing.JFrame {
                 showSelectedPersonal(index, true);
                 break;
             case "Last":
+
                 this.index = modelPersonal.getList().size() - 1;
                 showSelectedPersonal(index, true);
                 break;
@@ -2482,6 +2626,7 @@ public class MainFrom extends javax.swing.JFrame {
                 break;
 
             case "Prev":
+
                 --index;
                 if (index < 0) {
                     index = 0;
@@ -2563,7 +2708,7 @@ public class MainFrom extends javax.swing.JFrame {
         }
     }
 
-    // handle image Pet
+//    // handle image Pet
 //    public void handleImagePet() {
 //        handleImage(lblImagePet, petImage);
 //    }
@@ -2622,7 +2767,7 @@ public class MainFrom extends javax.swing.JFrame {
             str.append("Price cannot be blank ! \n");
             flag = false;
         } else {
-            if (!Validate.isFloat(txtIdPet)) {
+            if (!Validate.isFloat(txtPricePet)) {
                 str.append("Price must be numeric ! \n");
                 flag = false;
             }
@@ -2711,12 +2856,58 @@ public class MainFrom extends javax.swing.JFrame {
         return flag;
     }
 
+    public void showStateList(String state, String list) {
+        if (list.equals("pet")) {
+            switch (state) {
+                case "highest":
+                    ContantString.notifyListPetHighest(lblNotifyPet);
+                    renderPet(modelPet.getListHeighest());
+                    break;
+                case "lowest":
+                    ContantString.notifyListPetLowest(lblNotifyPet);
+                    renderPet(modelPet.getListLowest());
+                    break;
+                case "back":
+                    ContantString.notifyListPet(lblNotifyPet);
+                    renderPet(modelPet.getList());
+                    break;
+
+                default:
+                    break;
+            }
+        } else if (list.equals("personal")) {
+            switch (state) {
+                case "highest":
+                    ContantString.notifyListPetHighest(lblNotifyPersonal);
+                    renderPersonal(modelPersonal.getListHighest());
+                    break;
+                case "lowest":
+                    ContantString.notifyListPetLowest(lblNotifyPersonal);
+                    renderPersonal(modelPersonal.getListLowest());
+                    break;
+                case "back":
+                    ContantString.notifyListPet(lblNotifyPersonal);
+                    renderPersonal(modelPersonal.getList());
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    // get user
     public User getUser() {
         return user;
     }
 
+    // set user
     public void setUser(User user) {
         this.user = user;
     }
 
+    //function is updating
+    public void fucIsUpdating() {
+        Message.showWarning("function is updating...", this);
+    }
 }

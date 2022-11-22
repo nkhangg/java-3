@@ -40,11 +40,15 @@ public class LoginController implements MouseListener, ActionListener, KeyListen
     }
 
     public void handleLLogin() {
-        if (view.login()) {
-            new LoandingFrom(view.createUser());
-            view.setVisible(false);
-            view.dispose();
-        }
+//        if (view.login()) {
+//            new LoandingFrom(view.createUser());
+//            view.setVisible(false);
+//            view.dispose();
+//        }
+
+        new LoandingFrom(view.createUser());
+        view.setVisible(false);
+        view.dispose();
     }
 
     @Override
@@ -74,7 +78,7 @@ public class LoginController implements MouseListener, ActionListener, KeyListen
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             handleLLogin();
         }
     }

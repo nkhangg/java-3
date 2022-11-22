@@ -79,12 +79,11 @@ public class PetController implements MouseListener, ActionListener, KeyListener
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getKeyCode());
         if (e.getKeyCode() == 39) {
             view.controllPet("Next");
         } else if (e.getKeyCode() == 37) {
             view.controllPet("Prev");
-        }
+        } 
     }
 
     @Override

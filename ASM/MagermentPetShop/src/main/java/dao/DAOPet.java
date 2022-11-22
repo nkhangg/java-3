@@ -251,11 +251,90 @@ public class DAOPet implements DAOInterface<Pet> {
         return !list.isEmpty() ? list : null;
     }
 
-//    public static void main(String[] args) {
-//
-//        for (int i = 0; i < 10; i++) {
-//            boolean p = DAOPet.getInstand().insert(new Pet("Dog " + i, i, i, "Cho " + i, "Male", "white", i * 10000, null));
-//            System.out.println(p);
-//        }
-//    }
+    public ArrayList<Pet> selectTop3Highest() {
+        ArrayList<Pet> list = new ArrayList<>();
+
+        try {
+            Connection con = JDBCUntil.getConnection();
+
+            String sql = "select top 3 * from pet\n"
+                    + "order by price desc";
+
+            PreparedStatement pa = con.prepareStatement(sql);
+
+            ResultSet rs = pa.executeQuery();
+
+            while (rs.next()) {
+                Blob blod = rs.getBlob("image");
+                byte[] b = null;
+                if (blod != null) {
+                    b = blod.getBytes(1, (int) blod.length());
+                }
+
+                list.add(new Pet(
+                        rs.getInt("idPet"),
+                        rs.getString("namePet"),
+                        rs.getInt("age"),
+                        rs.getFloat("weight"),
+                        rs.getString("type"),
+                        rs.getString("genther"),
+                        rs.getString("color"),
+                        rs.getFloat("price"),
+                        b));
+            }
+
+            JDBCUntil.closeConnection(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    
+    public ArrayList<Pet> selectTop3Lowest() {
+        ArrayList<Pet> list = new ArrayList<>();
+
+        try {
+            Connection con = JDBCUntil.getConnection();
+
+            String sql = "select top 3 * from pet\n"
+                    + "order by price asc";
+
+            PreparedStatement pa = con.prepareStatement(sql);
+
+            ResultSet rs = pa.executeQuery();
+
+            while (rs.next()) {
+                Blob blod = rs.getBlob("image");
+                byte[] b = null;
+                if (blod != null) {
+                    b = blod.getBytes(1, (int) blod.length());
+                }
+
+                list.add(new Pet(
+                        rs.getInt("idPet"),
+                        rs.getString("namePet"),
+                        rs.getInt("age"),
+                        rs.getFloat("weight"),
+                        rs.getString("type"),
+                        rs.getString("genther"),
+                        rs.getString("color"),
+                        rs.getFloat("price"),
+                        b));
+            }
+
+            JDBCUntil.closeConnection(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public static void main(String[] args) {
+
+        for (Pet pet : DAOPet.getInstand().selectTop3Lowest()) {
+            System.out.println(pet.toString());
+        }
+    }
 }

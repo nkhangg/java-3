@@ -14,8 +14,18 @@ import java.util.ArrayList;
 public class ManagermentPetModel {
 
     ArrayList<Pet> list = DAOPet.getInstand().selectAll();
+    ArrayList<Pet> listHeighest = DAOPet.getInstand().selectTop3Highest();
+    ArrayList<Pet> listLowest = DAOPet.getInstand().selectTop3Lowest();
 
     public ManagermentPetModel() {
+    }
+
+    public ArrayList<Pet> getListHeighest() {
+        return listHeighest;
+    }
+
+    public ArrayList<Pet> getListLowest() {
+        return listLowest;
     }
 
     public ArrayList<Pet> getList() {
@@ -69,5 +79,4 @@ public class ManagermentPetModel {
 //            System.out.println(p.toString());
 //        }
 //    }
-
 }

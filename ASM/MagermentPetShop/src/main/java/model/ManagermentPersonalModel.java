@@ -15,20 +15,32 @@ import ultil.Fomart;
  * @author PC
  */
 public class ManagermentPersonalModel {
-    
+
     ArrayList<Saff> list = DAOSaff.getInstand().selectAll();
-    
+    ArrayList<Saff> listHighest = DAOSaff.getInstand().selectTop3Highest();
+    ArrayList<Saff> listLowest = DAOSaff.getInstand().selectTop3Lowest();
+
     public ManagermentPersonalModel() {
     }
-    
+
     public ArrayList<Saff> getList() {
         return list;
     }
-    
+
     public void setList(ArrayList<Saff> list) {
         this.list = list;
     }
+
+    public ArrayList<Saff> getListHighest() {
+        return listHighest;
+    }
+
+    public ArrayList<Saff> getListLowest() {
+        return listLowest;
+    }
     
+    
+
     public boolean insert(Saff us) {
         boolean result = DAOSaff.getInstand().insert(us);
         if (result) {
@@ -36,7 +48,7 @@ public class ManagermentPersonalModel {
         }
         return result;
     }
-    
+
     public boolean update(Saff us) {
         boolean result = DAOSaff.getInstand().update(us);
         if (result) {
@@ -44,7 +56,7 @@ public class ManagermentPersonalModel {
         }
         return result;
     }
-    
+
     public boolean delete(Saff us) {
         boolean result = DAOSaff.getInstand().delete(us);
         if (result) {
@@ -52,20 +64,20 @@ public class ManagermentPersonalModel {
         }
         return result;
     }
-    
+
     public Saff findById(String id) {
         return DAOSaff.getInstand().selectById(id).getIdSaff() != null ? DAOSaff.getInstand().selectById(id) : null;
     }
-    
+
     public boolean selectAllCondition(String condition) {
         if (DAOPet.getInstand().selectByConditon(condition) != null) {
             list = DAOSaff.getInstand().selectByConditon(condition);
             return true;
-            
+
         }
         return false;
     }
-    
+
 //    public static void main(String[] args) throws ParseException {
 //        ManagermentPersonalModel model = new ManagermentPersonalModel();
 //        

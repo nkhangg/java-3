@@ -248,4 +248,82 @@ public class DAOSaff implements DAOInterface<Saff> {
         return !list.isEmpty() ? list : null;
     }
 
+    public ArrayList<Saff> selectTop3Highest() {
+        ArrayList<Saff> list = new ArrayList<>();
+
+        try {
+            Connection con = JDBCUntil.getConnection();
+
+            String sql = "select top 3 * from saff\n"
+                    + "order by dateOfBirth asc";
+
+            PreparedStatement pa = con.prepareStatement(sql);
+
+            ResultSet rs = pa.executeQuery();
+
+            while (rs.next()) {
+                Blob blod = rs.getBlob("image");
+                byte[] b = null;
+                if (blod != null) {
+                    b = blod.getBytes(1, (int) blod.length());
+                }
+
+                list.add(new Saff(rs.getString("idSaff"),
+                        rs.getString("nameSaff"),
+                        rs.getDate("dateOfBirth"),
+                        rs.getString("genther"),
+                        rs.getString("address"),
+                        rs.getString("email"),
+                        rs.getString("role"),
+                        b)
+                );
+            }
+
+            JDBCUntil.closeConnection(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public ArrayList<Saff> selectTop3Lowest() {
+        ArrayList<Saff> list = new ArrayList<>();
+
+        try {
+            Connection con = JDBCUntil.getConnection();
+
+            String sql = "select top 3 * from saff\n"
+                    + "order by dateOfBirth desc";
+
+            PreparedStatement pa = con.prepareStatement(sql);
+
+            ResultSet rs = pa.executeQuery();
+
+            while (rs.next()) {
+                Blob blod = rs.getBlob("image");
+                byte[] b = null;
+                if (blod != null) {
+                    b = blod.getBytes(1, (int) blod.length());
+                }
+
+                list.add(new Saff(rs.getString("idSaff"),
+                        rs.getString("nameSaff"),
+                        rs.getDate("dateOfBirth"),
+                        rs.getString("genther"),
+                        rs.getString("address"),
+                        rs.getString("email"),
+                        rs.getString("role"),
+                        b)
+                );
+            }
+
+            JDBCUntil.closeConnection(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
 }

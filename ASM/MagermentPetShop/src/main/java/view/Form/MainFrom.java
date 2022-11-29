@@ -2065,7 +2065,7 @@ public class MainFrom extends javax.swing.JFrame {
     }
 
     public void init() {
-//        handleWelcome();
+        handleWelcome();
         showHome();
         initStyleTable(tblTablePet);
         initStyleTable(tblTablePerson);

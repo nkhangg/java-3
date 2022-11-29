@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import ultil.Message;
 import view.Form.MainFrom;
 
 /**
@@ -26,10 +27,10 @@ public class PersonalController implements ActionListener, MouseListener, KeyLis
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        if (!view.getUser().getRole().equalsIgnoreCase("Admin")) {
-//            Message.showSuccess("You do not have access", view);
-//            return;
-//        }
+        if (!view.getUser().getRole().equalsIgnoreCase("Admin")) {
+            Message.showWarning("You do not have access", view);
+            return;
+        }
         String src = e.getActionCommand();
 
         view.controllPerson(src);

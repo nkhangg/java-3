@@ -2292,7 +2292,7 @@ public class MainFrom extends javax.swing.JFrame {
             String genther = p.getGenther();
             String role = p.getRole();
 
-            if (genther.equals(cboManagerPerson.getText())) {
+            if (role.equals(cboManagerPerson.getText())) {
                 cboManagerPerson.setSelected(true);
             } else if (genther.equals(cboPerson.getText())) {
                 cboPerson.setSelected(true);
@@ -2300,7 +2300,7 @@ public class MainFrom extends javax.swing.JFrame {
                 cboCashierPerson.setSelected(true);
             }
 
-            if (role.equals(cboMalePerson.getText())) {
+            if (genther.equals(cboMalePerson.getText())) {
                 cboMalePerson.setSelected(true);
             } else if (genther.equals(cboFemalePerson.getText())) {
                 cboFemalePerson.setSelected(true);

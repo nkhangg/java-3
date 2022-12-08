@@ -11,23 +11,24 @@ import java.sql.Time;
  * @author PC
  */
 public class Detail {
+
     private String idSaff;
     private Time beginTime;
     private Time finishTime;
     private int dayOfWeef;
     private float salaryOfHour;
     private float bonus;
+    private double total;
 
-    public Detail(String idSaff, Time beginTime, Time finishTime, int dayOfWeef, float salaryOfHour, float bonus) {
+    public Detail(String idSaff, Time beginTime, Time finishTime, int dayOfWeef, float salaryOfHour, float bonus, double total) {
         this.idSaff = idSaff;
         this.beginTime = beginTime;
         this.finishTime = finishTime;
         this.dayOfWeef = dayOfWeef;
         this.salaryOfHour = salaryOfHour;
         this.bonus = bonus;
+        this.total = total;
     }
-
-    
 
     public Detail() {
     }
@@ -79,12 +80,18 @@ public class Detail {
     public void setIdSaff(String idSaff) {
         this.idSaff = idSaff;
     }
-    
-    
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
     @Override
     public String toString() {
-        return "Detail{" + "beginTime=" + beginTime + ", finishTime=" + finishTime + ", dayOfWeef=" + dayOfWeef + ", salaryOfHour=" + salaryOfHour + ", bonus=" + bonus + '}';
+        return "Detail{" + "idSaff=" + idSaff + ", beginTime=" + beginTime + ", finishTime=" + finishTime + ", dayOfWeef=" + dayOfWeef + ", salaryOfHour=" + salaryOfHour + ", bonus=" + bonus + ", total=" + total + '}';
     }
 
 }

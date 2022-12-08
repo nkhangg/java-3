@@ -30,7 +30,8 @@ create table detailSaff
 	finishTime time,
 	dayOfWeef int,
 	salaryOfHour float,
-	bonus float
+	bonus float,
+	total real
 )
 
 
@@ -61,3 +62,5 @@ select * from detailSaff
 insert into users
 values('khangpn', '12345', 'Admin'),
 ('khanguser', '12345', 'Manager')
+
+select * from detailSaff

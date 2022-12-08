@@ -91,4 +91,43 @@ public class Validate {
         return true;
     }
 
+    public static boolean validateDetail(JTextField day, JTextField salaryOfHour, JTextField bonus, int begin, int finish, Component main) {
+        boolean flag = true;
+        String str = "";
+        if (isEmpty(bonus) || isEmpty(salaryOfHour) || isEmpty(day)) {
+            bonus.setText(0 + "");
+            salaryOfHour.setText(0 + "");
+            day.setText(0 + "");
+        }
+        try {
+
+            flag = isInt(day);
+            if (!flag) {
+                str += "Day must number ! \n";
+            }
+            flag = isDouble(salaryOfHour);
+            if (!flag) {
+                str += "Salary Of Hour must number ! \n";
+            }
+            flag = isDouble(bonus);
+            if (!flag) {
+                str += "Bonus must number ! \n";
+            }
+
+            flag = finish - begin > 0 ? true : false;
+            if (!flag) {
+                str += "Time invalid ! \n";
+            }
+
+            if (!str.equals("")) {
+                Message.showWarning(str, main);
+                flag = false;
+                return flag;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }

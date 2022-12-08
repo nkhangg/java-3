@@ -17,4 +17,8 @@ public class Convert {
     public static float convertFloat(String input) {
         return Float.parseFloat(input);
     }
+
+    public static Double convertDouble(String input) {
+        return Double.parseDouble(input);
+    }
 }

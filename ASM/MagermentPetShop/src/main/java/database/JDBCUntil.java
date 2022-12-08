@@ -13,7 +13,9 @@ public class JDBCUntil {
 
             String user = "sa";
             String pass = "";
-            String url = "jdbc:sqlserver://localhost:1434;DatabaseName=QLSDV";
+            String url = "jdbc:sqlserver://localhost:1434;encrypt=true;database=QLSDV;trustServerCertificate=true;sslProtocol=TLSv1.2";
+//jdbc:sqlserver://localhost:1434;encrypt=true;database=QLSDV;trustServerCertificate=true;sslProtocol=TLSv1.2
+//jdbc:sqlserver://localhost:1434;DatabaseName=QLSDV
 
             c = DriverManager.getConnection(url, user, pass);
 

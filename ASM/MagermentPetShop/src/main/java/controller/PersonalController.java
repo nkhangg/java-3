@@ -27,10 +27,10 @@ public class PersonalController implements ActionListener, MouseListener, KeyLis
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!view.getUser().getRole().equalsIgnoreCase("Admin")) {
-            Message.showWarning("You do not have access", view);
-            return;
-        }
+//        if (!view.getUser().getRole().equalsIgnoreCase("Admin")) {
+//            Message.showWarning("You do not have access", view);
+//            return;
+//        }
         String src = e.getActionCommand();
 
         view.controllPerson(src);
@@ -50,6 +50,10 @@ public class PersonalController implements ActionListener, MouseListener, KeyLis
                 break;
             case "Image":
                 view.handleImagePerson();
+                break;
+
+            case "DetailPerson":
+                view.handleDetail();
                 break;
             default:
                 break;

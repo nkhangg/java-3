@@ -8,6 +8,7 @@ import database.JDBCUntil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Time;
 import java.util.ArrayList;
 import model.Detail;
 
@@ -27,7 +28,8 @@ public class DAODetail implements DAOInterface<Detail> {
         try {
             Connection con = JDBCUntil.getConnection();
 
-            String sql = "insert into detailSaff values (?, ?, ?, ?, ?, ?)";
+            String sql = "insert into detailSaff\n"
+                    + "values (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pa = con.prepareStatement(sql);
 
@@ -37,6 +39,7 @@ public class DAODetail implements DAOInterface<Detail> {
             pa.setInt(4, t.getDayOfWeef());
             pa.setFloat(5, t.getSalaryOfHour());
             pa.setFloat(6, t.getBonus());
+            pa.setDouble(7, t.getTotal());
 
             result = pa.executeUpdate();
 
@@ -60,17 +63,19 @@ public class DAODetail implements DAOInterface<Detail> {
                     + "	finishTime = ?,\n"
                     + "	dayOfWeef = ?,\n"
                     + "	salaryOfHour = ?,\n"
-                    + "	bonus = ?\n"
+                    + "	bonus = ?,\n"
+                    + "	total = ?\n"
                     + "where idSaff = ?";
 
             PreparedStatement pa = con.prepareStatement(sql);
 
-            pa.setString(6, t.getIdSaff());
+            pa.setString(7, t.getIdSaff());
             pa.setTime(1, t.getBeginTime());
             pa.setTime(2, t.getFinishTime());
             pa.setInt(3, t.getDayOfWeef());
             pa.setFloat(4, t.getSalaryOfHour());
             pa.setFloat(5, t.getBonus());
+            pa.setDouble(6, t.getTotal());
 
             result = pa.executeUpdate();
 
@@ -121,13 +126,7 @@ public class DAODetail implements DAOInterface<Detail> {
 
             while (rs.next()) {
 
-                list.add(new Detail(
-                        rs.getString("idSaff"),
-                        rs.getTime("beginTime"),
-                        rs.getTime("finishTime"),
-                        rs.getInt("dayOfWeef"),
-                        rs.getFloat("salaryOfHour"),
-                        rs.getFloat("bonus")));
+                list.add(new Detail(rs.getString("idSaff"), rs.getTime("beginTime"), rs.getTime("finishTime"), rs.getInt("dayOfWeef"), rs.getFloat("salaryOfHour"), rs.getFloat("bonus"), rs.getDouble("total")));
             }
 
             JDBCUntil.closeConnection(con);
@@ -160,6 +159,7 @@ public class DAODetail implements DAOInterface<Detail> {
                 us.setDayOfWeef(rs.getInt("dayOfWeef"));
                 us.setSalaryOfHour(rs.getFloat("salaryOfHour"));
                 us.setBonus(rs.getFloat("bonus"));
+                us.setTotal(rs.getDouble("total"));
 
             }
 
@@ -168,7 +168,7 @@ public class DAODetail implements DAOInterface<Detail> {
             e.printStackTrace();
         }
 
-        return us;
+        return us.getIdSaff() == null ? null : us;
     }
 
     @Override
@@ -187,14 +187,7 @@ public class DAODetail implements DAOInterface<Detail> {
             ResultSet rs = pa.executeQuery();
 
             while (rs.next()) {
-
-                list.add(new Detail(
-                        rs.getString("idSaff"),
-                        rs.getTime("beginTime"),
-                        rs.getTime("finishTime"),
-                        rs.getInt("dayOfWeef"),
-                        rs.getFloat("salaryOfHour"),
-                        rs.getFloat("bonus")));
+                list.add(new Detail(rs.getString("idSaff"), rs.getTime("beginTime"), rs.getTime("finishTime"), rs.getInt("dayOfWeef"), rs.getFloat("salaryOfHour"), rs.getFloat("bonus"), rs.getDouble("total")));
             }
 
             JDBCUntil.closeConnection(con);
@@ -205,5 +198,14 @@ public class DAODetail implements DAOInterface<Detail> {
         return !list.isEmpty() ? list : null;
     }
 
+    public static void main(String[] args) {
+        boolean i = DAODetail.getInstand().update(new Detail("NV001", new Time(17,0,0), new Time(21,00,00), 0, 0, 0, 0));
+
+//        Detail i = DAODetail.getInstand().selectById("NV001wfqf");
+
+//        for (String string : "7:00:00".split(":")) {
+//            System.out.println(Integer.parseInt(string));
+//        }
+    }
 
 }
